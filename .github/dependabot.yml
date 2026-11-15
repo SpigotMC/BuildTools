@@ -1,0 +1,24 @@
+version: 2
+
+updates:
+  - package-ecosystem: "maven"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    groups:
+      maven:
+        patterns:
+          - "*"
+    ignore:
+        # Requires Java 17, no useful changes
+      - dependency-name: "com.akathist.maven.plugins.launch4j:launch4j-maven-plugin"
+        # Requires Java 11
+      - dependency-name: "org.eclipse.jgit:org.eclipse.jgit"
+        update-types: ["version-update:semver-major"]
+        # Via org.eclipse.jgit
+      - dependency-name: "org.slf4j:slf4j-jdk14"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
