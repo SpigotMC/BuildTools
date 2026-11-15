@@ -1,5 +1,8 @@
 package org.spigotmc.builder;
 
+import com.github.difflib.DiffUtils;
+import com.github.difflib.UnifiedDiffUtils;
+import com.github.difflib.patch.Patch;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.ObjectArrays;
@@ -14,8 +17,6 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import difflib.DiffUtils;
-import difflib.Patch;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -614,7 +615,7 @@ public class Builder
                     readFile.add( 0, "+++" );
                 }
 
-                Patch parsedPatch = DiffUtils.parseUnifiedDiff( readFile );
+                Patch parsedPatch = UnifiedDiffUtils.parseUnifiedDiff( readFile );
                 List<?> modifiedLines = DiffUtils.patch( Files.readLines( clean, StandardCharsets.UTF_8 ), parsedPatch );
 
                 try ( BufferedWriter bw = new BufferedWriter( new FileWriter( t ) ) )

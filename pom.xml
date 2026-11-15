@@ -34,16 +34,10 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.custardsource.dybdob</groupId>
-            <artifactId>java-diff-utils-copy</artifactId>
-            <version>1.0.5</version>
+            <groupId>io.github.java-diff-utils</groupId>
+            <artifactId>java-diff-utils</artifactId>
+            <version>4.18</version>
             <scope>compile</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>junit</groupId>
-                    <artifactId>junit</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
